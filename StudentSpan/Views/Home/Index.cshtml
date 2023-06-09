@@ -1,0 +1,17 @@
+﻿@model StudentSpan.Models.ApplicationUser
+@{
+    ViewData["Title"] = "Student Span Home Page";
+    ViewData["FirstName"] = (Model != null) ? Model.FirstName : "";
+    ViewData["LastName"] = (Model != null) ? Model.LastName : "";
+}
+
+<div class="text-center">
+    <h1 class="display-1">The Future of Recruiting</h1>
+    <hr />
+    <img src="~/uploadedfiles/images/MediumLogo.png" />
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+<div class="text-center">
+    <p>Learn more about our vision <a class="navbar-brand" asp-controller="Home" asp-action="About_Us">Here</a>.</p>
+</div>

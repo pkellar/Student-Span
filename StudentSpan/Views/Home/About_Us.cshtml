@@ -1,0 +1,23 @@
+﻿@model StudentSpan.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "About Us";
+    ViewData["FirstName"] = (Model != null) ? Model.FirstName : "";
+    ViewData["LastName"] = (Model != null) ? Model.LastName : "User";
+}
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+</div>
+
+@*<p>Displaying Info About The Team!</p>*@
+<div class="text-center">
+
+    <br />
+    <h1 class="display-4">Product Vision</h1>
+    <p>For students and recruiters who are looking to connect, Student Span is recruiting software that helps manage and display candidates in a web-based platform. This allows qualified students to be eaily found and sorted by recruiters. Unlike other services we focus on a seamless experiance for both students and recruiters.</p>
+
+
+    <h1 class="display-4">Value Proposition</h1>
+    <p>Student Span is the best way for students to be easily seen and connected with recruiters in one web-based platform. Starting your career has never been so simple.</p>
+</div>

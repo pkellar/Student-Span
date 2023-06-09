@@ -1,0 +1,106 @@
+﻿@model StudentSpan.ViewModels.StudentViewModel
+
+@{
+    ViewData["Title"] = "Watch";
+}
+
+<h1>Student Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GradMonth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GradMonth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GradYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GradYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.School)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.School)
+        </dd>
+        <dd class="col-sm-10">
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        </dd>
+        
+    </dl>
+</div>
+
+<br> <!-- New line -->
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.WatchText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WatchTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WatchedBy)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Watches != null)
+            {
+                @foreach (var item in Model.Watches)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Text)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WatchedOn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WatchedBy)
+                        </td>
+                        <td>
+                            <a asp-action="DeleteWatch"
+                               asp-route-id="@item.ID"
+                               asp-route-studentId="@Model.Id">
+                                Unwatch
+                            </a>
+                        </td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <p>
+        <a asp-controller="Student" asp-action="CreateWatch" asp-route-id="@Model.Id">Add Watch</a> |
+        <a asp-action="Index">Back to List</a>
+    </p>
+</div>

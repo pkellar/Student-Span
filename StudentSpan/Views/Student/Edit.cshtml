@@ -1,0 +1,100 @@
+﻿@model StudentSpan.ViewModels.StudentViewModel
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+</div>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @@media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form asp-action="Edit">
+        <div class="row">
+            <div class="column">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="GradMonth" class="control-label"></label>
+                    <input asp-for="GradMonth" class="form-control" />
+                    <span asp-validation-for="GradMonth" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="Degree" class="control-label"></label>
+                    <input asp-for="Degree" class="form-control" />
+                    <span asp-validation-for="Degree" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="column">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="GradYear" class="control-label"></label>
+                    <input asp-for="GradYear" class="form-control" />
+                    <span asp-validation-for="GradYear" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label style="font-size:200%" asp-for="School" class="control-label"></label>
+                    <input asp-for="School" class="form-control" />
+                    <span asp-validation-for="School" class="text-danger"></span>
+                </div>
+                    <a style="font-size:125%" asp-action="Index">Back to Student List</a>
+                </div>
+            </div>
+    </form>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
